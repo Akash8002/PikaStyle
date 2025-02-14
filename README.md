@@ -73,13 +73,3 @@ We welcome contributions! If you'd like to help improve PikaStyle, feel free to:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
-
-📈 **Stay Stylish with PikaStyle!** 💻
-```
-
-### Highlights:
-- **Emojis** have been added throughout to make the README more engaging and visually appealing.
-- **Headings** are used effectively to break down sections and make them stand out.
-- Icons like 🚀, ✨, 🛠️, and others make the content more interactive and friendly.
-  
-This format should grab attention while providing important project details in an easy-to-read manner! Let me know if you’d like any further tweaks or additions.
