@@ -46,7 +46,7 @@ Now you're all set to start using PikaStyle!
 Once installed, simply run the script to start scraping fashion data from your favorite e-commerce websites.
 
 ```bash
-python main.py
+python gradio_app.py
 ```
 
 ### Example Code
