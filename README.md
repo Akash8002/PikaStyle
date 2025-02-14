@@ -22,46 +22,60 @@ Before running PikaStyle, make sure to have the following Python packages instal
 
 ```bash
 pip install -r requirements.txt
-📥 Installation
-1. Clone the repository:
-bash
-Copy
+```
+
+## 📥 Installation
+
+### 1. Clone the repository:
+
+```bash
 git clone https://github.com/Akash8002/PikaStyle.git
 cd PikaStyle
-2. Install the required dependencies:
-bash
-Copy
+```
+
+### 2. Install the required dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
 Now you're all set to start using PikaStyle!
 
-🚀 Usage
+## 🚀 Usage
+
 Once installed, simply run the script to start scraping fashion data from your favorite e-commerce websites.
 
-bash
-Copy
-python gradio_app.py
-Example Code
+```bash
+python main.py
+```
+
+### Example Code
+
 You can also customize the script to target specific websites and data points.
 
-python
-Copy
+```python
 # Example usage of PikaStyle
 scraper = PikaStyleScraper(target_url="https://example.com")
 scraper.scrape()
+```
+
 This will scrape the fashion data and save it in a CSV file by default.
 
-🤝 Contributing
+## 🤝 Contributing
+
 We welcome contributions! If you'd like to help improve PikaStyle, feel free to:
 
-Open an issue 🐛
-Submit a pull request 💥
-📄 License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+- Open an issue 🐛
+- Submit a pull request 💥
 
-📈 Stay Stylish with PikaStyle! 💻
+## 📄 License
 
-vbnet
-Copy
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+📈 **Stay Stylish with PikaStyle!** 💻
+```
 
 ### Highlights:
 - **Emojis** have been added throughout to make the README more engaging and visually appealing.
