@@ -41,7 +41,7 @@ PikaStyle is a Neural Style Transfer (NST) project designed to enhance and trans
 Contributions are welcome! Please open an issue or submit a pull request to improve the project.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 Special thanks to the open-source NLP and deep learning communities for providing the foundational tools and research that make this project possible.
