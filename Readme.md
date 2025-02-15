@@ -1,5 +1,4 @@
-# PikaStyle
-# 🎨 Neural Style Transfer & 😃 Facial Expression Recognition with 🤖 Grookey AI Chatbot  
+# PikaStyle - 🎨 Neural Style Transfer & 😃 Facial Expression Recognition with 🤖 Grookey AI Chatbot  
 
 **An interactive web application that lets you stylize images, analyze emotions, and chat with an AI assistant!**  
 
