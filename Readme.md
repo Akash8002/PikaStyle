@@ -21,7 +21,7 @@ PikaStyle is a Neural Style Transfer (NST) project designed to enhance and trans
    ```
 3. Run the application:
    ```bash
-   python main.py
+   python gradio_app.py
    ```
 
 ## Usage
@@ -34,6 +34,8 @@ PikaStyle is a Neural Style Transfer (NST) project designed to enhance and trans
 - NLP Techniques
 - Deep Learning
 - Docker
+- LLAMA AI 3.0
+- Groq AI
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request to improve the project.
