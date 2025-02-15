@@ -132,15 +132,6 @@ python gradio_app.py
 
 ---
 
-## **🎥 Demo**  
-### **Stylo Tab (NST & FER)**  
-![NST and FER Demo](assets/demo1.png)  
-
-### **Grookey Tab (AI Chatbot)**  
-![Chatbot Demo](assets/demo2.png)  
-
----
-
 ## **🎯 Key Highlights**  
 - **Real-Time Image Processing**: Apply NST and FER instantly.  
 - **Emotional Analysis**: Detects emotions from stylized images.  
