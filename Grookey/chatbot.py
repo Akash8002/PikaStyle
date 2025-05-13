@@ -1,31 +1,57 @@
 # Import necessary libraries
 import gradio as gr
 from g4f.client import Client
+from g4f.Provider import DeepInfra
+import logging
 
-# Initialize the G4F client
-client = Client()
+# Set up logging for debugging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Initialize the G4F client with DeepInfra provider and your API key
+client = Client(
+    provider=DeepInfra,
+    api_key="cSkAd8lAAE8jnWDL89YNMz2vaL2EPKqz"  # Your DeepInfra API key
+)
 
 # Store conversation history
 chat_history = []
 
 # Define the chatbot function
 def chatbot_response(user_input):
+    global chat_history
     # Add user input to chat history
-    chat_history.append(("User", user_input))
+    chat_history.append({"role": "user", "content": user_input})
     
-    # Get response from Grok model
-    response = client.chat.completions.create(
-        model="grok-2",  # Ensure you're using the correct model name
-        messages=[{"role": "user", "content": user_input}]
-    )
-    # Extract response content
-    bot_reply = response.choices[0].message.content
+    # Limit chat history to avoid rate limits
+    if len(chat_history) > 10:
+        chat_history = chat_history[-10:]
+    
+    try:
+        logger.info("Sending request to DeepInfra for model: meta-llama/Meta-Llama-3.1-8B-Instruct")
+        # Get response from Meta-Llama-3.1-8B-Instruct via DeepInfra
+        response = client.chat.completions.create(
+            model="meta-llama/Meta-Llama-3.1-8B-Instruct",  # Updated model name
+            messages=chat_history  # Send full history for context
+        )
+        # Extract response content
+        bot_reply = response.choices[0].message.content
+        logger.info("Received response successfully")
+    except Exception as e:
+        logger.error(f"Error: {str(e)}")
+        bot_reply = f"Error: {str(e)}"
     
     # Add bot reply to chat history
-    chat_history.append(("Bot", bot_reply))
+    chat_history.append({"role": "assistant", "content": bot_reply})
     
-    # Return the updated chat history and clear input box
+    # Return the chat history directly for Gradio chatbot
     return chat_history, ""
+
+# Define clear history function
+def clear_history():
+    global chat_history
+    chat_history = []
+    return [], ""
 
 # Gradio UI
 with gr.Blocks(css="""
@@ -39,14 +65,14 @@ with gr.Blocks(css="""
 """) as demo:
     gr.Markdown("<h2 style='text-align: center; color: #343a40;'>🤖 Grookey</h2>")
     
-    chatbot = gr.Chatbot(elem_classes="chatbox")
+    chatbot = gr.Chatbot(elem_classes="chatbox", type="messages")
     with gr.Row():
         msg = gr.Textbox(show_label=False, placeholder="Ask me anything...", elem_classes="input-box")
         clear = gr.Button("Clear", elem_classes="clear-button")
     
     msg.submit(chatbot_response, msg, [chatbot, msg])  # Auto-clear input box
-    clear.click(lambda: None, None, chatbot, queue=False)
+    clear.click(clear_history, None, [chatbot, msg], queue=False)
 
 # Launch Gradio UI
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch()
